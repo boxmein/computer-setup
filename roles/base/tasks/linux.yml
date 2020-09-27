@@ -1,0 +1,23 @@
+- name: install packages
+  package:
+    name:
+      - zsh
+      - xbindkeys                 # X11 bind keys to commands
+      - xclip                     # X11 clipboard CLI
+      - wine-stable
+      - winetricks
+      - wget
+      - weechat                   # IRC client
+      - xxd                       # hex dumper
+      - xdotool                   # X11 automator
+      - vlc                       # VLC media player
+      - valgrind                  # RAM usage analyzer for native software
+      - verilator                 # open source Verilog simulator
+      - strace                    # log all syscalls of a given program
+      - squid                     # HTTP/HTTPS proxy
+      - sshfs                     # SSH filesystem
+      - socat                     # netcat on steroids
+      - pssh                      # parallel SSH utility
+      - postgresql-client         # PostgreSQL cli
+    state: present
+  when: ansible_system == "Linux"
