@@ -21,8 +21,7 @@
   command:
     cmd: |
       npm install
-    chdir: |
-      ~/.config/coc/extensions/
+    chdir: ~/.config/coc/extensions/
     creates: ~/.config/coc/extensions/package-lock.json
 
 # neovim + vim-coc dependencies
