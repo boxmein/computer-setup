@@ -5,7 +5,6 @@
   when: ansible_system == "Darwin"
 - include_tasks: ./linux.yml
   when: ansible_system == "Linux"
-- include_tasks: ./asdf.yml
 - include_tasks: ./dotfiles.yml             # depends on git + SSH key being active
 - include_tasks: ./dotconfig.yml            # depends on dotfiles.yml
 - include_tasks: ./neovim.yml
