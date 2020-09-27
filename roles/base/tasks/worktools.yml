@@ -1,4 +1,0 @@
-- name: install work tools
-  community.general.homebrew:
-    name:
-      -

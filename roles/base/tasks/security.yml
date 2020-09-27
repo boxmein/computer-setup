@@ -29,7 +29,7 @@
     chdir: ~/Programs/ctf-tools
   loop:
     - binwalk
-    - sqlmap
+    # - sqlmap # requires python3-dev
 - name: download SecLists
   git:
     repo: git@github.com:danielmiessler/SecLists.git
