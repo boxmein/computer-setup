@@ -7,6 +7,7 @@
     state: link
     src: "~/.dotfiles/{{ item }}"
     path: "~/{{ item }}"
+    force: true # delete the pre-existing versions
   loop:
     - .zshrc
     - .zshenv
@@ -25,6 +26,7 @@
     src: "~/.dotfiles/{{ item }}"
     path: "~/{{ item }}"
     mode: u=rw,g=,o=
+    force: true # delete pre-existing versions
   loop:
     - .pgpass
     - .netrc
@@ -45,6 +47,7 @@
     state: link
     src: "~/.dotfiles/{{ item }}"
     path: "~/{{ item }}"
+    force: true # delete pre-existing versions
   loop:
     - .xbindkeysrc
     - .xinitrc
@@ -64,3 +67,4 @@
     path: ~/.kube/config
     src: ~/.dotfiles/.kube/config
     state: link
+    force: true # delete pre-existing versions

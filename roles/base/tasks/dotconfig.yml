@@ -8,6 +8,7 @@
     path: ~/.config/coc
     src: ~/.dotfiles/.config/coc
     state: link
+    force: true # delete pre-existing
 - name: symlink karabiner config
   file:
     path: ~/.config/karabiner
