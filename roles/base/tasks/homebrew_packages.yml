@@ -1,0 +1,145 @@
+- name: set up all homebrew repos
+  community.general.homebrew_tap:
+    name:
+      - homebrew/bundle
+      - homebrew/cask
+      - homebrew/cask-versions
+      - homebrew/core
+      - homebrew/services
+      - buildkite/buildkite
+      - buildkite/cli
+      - github/gh
+      - heroku/brew
+      - jesseduffield/lazydocker
+      - nektos/tap
+      - windmilleng/tap
+    state: present
+- name: install neovim
+  community.general.homebrew:
+    args:
+      - HEAD
+    name:
+      - neovim
+    present: true
+- name: install all packages
+  community.general.homebrew:
+    name:
+      - adns
+      - angle-grinder
+      - autoconf
+      - coreutils
+      - libyaml
+      - openssl@1.1
+      - asdf
+      - atk
+      - awscli
+      - bat
+      - bats
+      - binutils
+      - burp
+      - calc
+      - ccls
+      - clang-format
+      - cmake
+      - ctop
+      - curl
+      - libidn
+      - curl-openssl
+      - dnsmasq
+      - docker-credential-helper-ecr
+      - docker-machine
+      - emscripten
+      - fcrackzip
+      - fd
+      - ffmpeg
+      - fswatch
+      - fzf
+      - git
+      - git-lfs
+      - libksba
+      - npth
+      - pinentry
+      - gnupg
+      - gnuplot
+      - graphviz
+      - hicolor-icon-theme
+      - gtk+
+      - htop
+      - httpie
+      - shared-mime-info
+      - imagemagick
+      - john-jumbo
+      - oniguruma
+      - jq
+      - kubernetes-cli
+      - libiconv
+      - libotr
+      - libusb-compat
+      - libuv
+      - libvirt
+      - luarocks
+      - mitmproxy
+      - mysql
+      - ncdu
+      - netcat
+      - nmap
+      - openvpn
+      - optipng
+      - tmux
+      - overmind
+      - p7zip
+      - pass
+      - pg_top
+      - pkg-config
+      - pstree
+      - pth
+      - pv
+      - qemu
+      - radare2
+      - rename
+      - ripgrep
+      - ruby
+      - s-lang
+      - socat
+      - squid
+      - terraform
+      - the_silver_searcher
+      - thefuck
+      - tldr
+      - tor
+      - transmission-cli
+      - unicorn
+      - watch
+      - weechat
+      - wget
+      - yarn
+      - yq
+      - zsh
+      - buildkite/buildkite/buildkite-agent
+      - github/gh/gh
+      - heroku/brew/heroku
+      - jesseduffield/lazydocker/lazydocker
+      - windmilleng/tap/tilt
+- name: install casks
+  community.general.homebrew_cask:
+    name:
+      - 1password-cli
+      - android-platform-tools
+      - aws-vault
+      - burp-suite
+      - cscreen
+      - discord
+      - docker
+      - gas-mask
+      - google-chrome-canary
+      - google-cloud-sdk
+      - insomnia
+      - karabiner-elements
+      - keepassxc
+      - ngrok
+      - owasp-zap
+      - postman
+      - powershell
+      - syncthing
+      - visual-studio-code
+      - vmware-fusion
