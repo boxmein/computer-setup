@@ -16,6 +16,6 @@
   community.general.homebrew:
     update_homebrew: true
 
-- name: upgrade homebrew packages
-  community.general.homebrew:
-    upgrade_all: true
+# - name: upgrade homebrew packages
+# community.general.homebrew:
+# upgrade_all: true
