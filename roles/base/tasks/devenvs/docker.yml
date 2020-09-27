@@ -7,7 +7,6 @@
   when: ansible_system == "Linux"
 - name: install docker compose (Linux)
   pip:
-    executable: ~/.asdf/shims/pip
     name:
       - docker-compose
   when: ansible_system == "Linux"
