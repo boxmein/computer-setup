@@ -1,6 +1,7 @@
 - name: install docker (Linux)
   become: true
   command:
+    creates: /usr/bin/docker
     cmd: |
       curl get.docker.com | sh
   when: ansible_system == "Linux"
