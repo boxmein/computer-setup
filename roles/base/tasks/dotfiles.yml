@@ -1,3 +1,7 @@
+- name: download dotfiles
+  git:
+    repo: git@github.com:boxmein/dotfiles.git
+    dest: ~/.dotfiles/
 - name: symlink stuff (mac/linux)
   file:
     state: link

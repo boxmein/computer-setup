@@ -1,13 +1,14 @@
-- include_tasks: ./homebrew.yml
-- include_tasks: ./homebrew_packages.yml
-- include_tasks: ./dotconfig.yml
-- include_tasks: ./dotfiles.yml
-- include_tasks: ./asdf.yml
-- include_tasks: ./neovim.yml
-- include_tasks: ./macos.yml
+# pre-task: authorize to github.com with a valid SSH key
+- include_tasks: ./homebrew.yml             # installs git for linux
+# - include_tasks: ./homebrew_packages.yml
+- include_tasks: ./macos.yml                # installs git for macOS
   when: ansible_system == "Darwin"
 - include_tasks: ./linux.yml
   when: ansible_system == "Linux"
+- include_tasks: ./asdf.yml
+- include_tasks: ./dotfiles.yml             # depends on git + SSH key being active
+- include_tasks: ./dotconfig.yml            # depends on dotfiles.yml
+- include_tasks: ./neovim.yml
 - include_tasks: ./self_updater.yml
 - name: ensure ~/Programs exists
   file:
