@@ -1,4 +1,1 @@
-- name: bla bla
-  command:
-    cmd: |
-      echo bla bla
+- include_tasks: ./homebrew.yml

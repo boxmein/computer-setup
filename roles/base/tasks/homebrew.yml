@@ -1,0 +1,13 @@
+- name: install homebrew (linux)
+  command:
+    creates: /home/linuxbrew/.linuxbrew/bin/brew
+    cmd: |
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  when: ansible_system == "Linux"
+
+- name: install homebrew (Mac)
+  command:
+    creates: /usr/local/Cellar/bin/brew
+    cmd: |
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  when: ansible_system == "Darwin"
