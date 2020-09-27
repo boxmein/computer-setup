@@ -1,8 +1,6 @@
 - name: install security tools
   community.general.homebrew:
     name:
-      - burp-suite                # Burp Suite
-      - owasp-zap
       - tor
       - unicorn
       - radare2
@@ -10,6 +8,12 @@
       - john-jumbo
       - mitmproxy
       - hashcat
+- name: install security casks (Mac)
+  when: ansible_system == "Darwin"
+  community.general.homebrew_cask:
+    name:
+      - burp-suite
+      - owasp-zap
 - name: download my fork of ctf-tools
   git:
     repo: git@github.com:boxmein/ctf-tools.git
