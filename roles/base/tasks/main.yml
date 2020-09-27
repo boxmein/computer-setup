@@ -1,0 +1,4 @@
+- name: bla bla
+  command:
+    cmd: |
+      echo bla bla
