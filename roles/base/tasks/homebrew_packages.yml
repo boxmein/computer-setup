@@ -51,7 +51,6 @@
       - ncdu
       - openvpn
       - p7zip
-      - pass                      # Provides basic password management
       - pg_top                    # Provides postgresql top
       - pkg-config                # Dep of other packages
       - pstree

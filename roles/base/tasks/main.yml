@@ -7,6 +7,7 @@
   when: ansible_system == "Linux"
 - include_tasks: ./dotfiles.yml             # depends on git + SSH key being active
 - include_tasks: ./dotconfig.yml            # depends on dotfiles.yml
+- include_tasks: ./pass.yml
 - include_tasks: ./neovim.yml
 - include_tasks: ./self_updater.yml
 - name: ensure ~/Programs exists
