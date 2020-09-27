@@ -26,6 +26,7 @@
   command:
     cmd: |
       bin/manage-tools install {{ item }}
+    creates: ~/Programs/ctf-tools/bin/{{ item }}
     chdir: ~/Programs/ctf-tools
   loop:
     - binwalk
@@ -33,10 +34,12 @@
 - name: download SecLists
   git:
     repo: git@github.com:danielmiessler/SecLists.git
+    dest: ~/Programs/SecLists/
     depth: 1
     version: HEAD
 - name: download fuzzdb
   git:
     repo: git@github.com:fuzzdb-project/fuzzdb.git
+    dest: ~/Programs/fuzzdb/
     depth: 1
     version: HEAD
