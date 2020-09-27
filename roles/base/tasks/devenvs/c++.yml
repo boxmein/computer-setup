@@ -1,0 +1,4 @@
+- name: install c++ dev packages
+  community.general.homebrew:
+    name:
+      - clang-format

@@ -1,0 +1,23 @@
+- name: install docker (Linux)
+  become: true
+  command:
+    cmd: |
+      curl get.docker.com | sh
+  when: ansible_system == "Linux"
+- name: install docker compose (Linux)
+  pip:
+    executable: ~/.asdf/shims/pip
+    name:
+      - docker-compose
+  when: ansible_system == "Linux"
+- name: install docker (Mac)
+  community.general.homebrew_cask:
+    name:
+      - docker
+- name: allow current user to access docker (linux)
+  become: true
+  user:
+    name: "{{ ansible_user_id }}"
+    groups:
+      - docker
+    append: yes

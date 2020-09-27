@@ -1,0 +1,12 @@
+- name: install kubectl
+  debug:
+    msg: done by asdf already
+- name: install k9s
+  debug:
+    msg: done by asdf already
+- name: install kubespy
+  community.general.homebrew:
+    name:
+      - kubespy
+    state: present
+- name: install

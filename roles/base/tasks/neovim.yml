@@ -4,7 +4,7 @@
       - HEAD
     name:
       - neovim
-    present: true
+    state: present
 - name: install neovim python support
   pip:
     executable: ~/.asdf/shims/pip
@@ -23,3 +23,23 @@
     chdir: |
       ~/.config/coc/extensions/
     creates: ~/.config/coc/extensions/package-lock.json
+
+# neovim + vim-coc dependencies
+- name: install ccls (neovim + coc c++ language-server)
+  community.general.homebrew:
+    name:
+      - ccls
+    state: present
+- name: install kotlin-language-server
+  block:
+    - name: download kotlin lsp
+      git:
+        repo: https://github.com/fwcd/kotlin-language-server
+        dest: ~/Programs/kotlin-language-server/
+        depth: 1
+    - name: build kotlin lsp
+      command:
+        creates: ~/Programs/kotlin-language-server/server/build/scripts/kotlin-language-server
+        cmd: |
+          ./gradlew :server:installDist
+        chdir: ~/Programs/kotlin-language-server

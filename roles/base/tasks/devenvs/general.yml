@@ -1,0 +1,42 @@
+- name: install Xcode
+  command:
+    cmd: |
+      xcode-select --install
+  when: ansible_system == "Darwin"
+- name: install useful dev packages
+  community.general.homebrew:
+    name:
+      - bat
+      - curl
+      - dnsmasq
+      - docker-credential-helper-ecr
+      - docker-machine
+      - fswatch
+      - gnuplot
+      - graphviz
+      - httpie
+      - imagemagick
+      - jq
+      - netcat
+      - nmap
+      - tmux
+      - overmind
+      - qemu
+      - socat
+      - squid
+      - yq
+      - buildkite/buildkite/buildkite-agent
+      - github/gh/gh
+      - heroku/brew/heroku
+      - jesseduffield/lazydocker/lazydocker
+- name: install useful dev casks
+  community.general.homebrew_cask:
+    name:
+      - android-platform-tools    # Provides AVD + adb
+      - aws-vault                 # Provides AWS-Vault
+      - insomnia
+      - ngrok
+      - postman
+      - vmware-fusion
+      - visual-studio-code
+  when: ansible_system == "Darwin"

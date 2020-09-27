@@ -44,3 +44,9 @@
       - name: kubectl
         versions:
           - "1.19.2"
+      - name: kubeval
+        versions:
+          - "0.14.0"
+      - name: k9s
+        versions:
+          - "0.19.2"

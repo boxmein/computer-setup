@@ -1,0 +1,34 @@
+- name: install security tools
+  community.general.homebrew:
+    name:
+      - burp-suite                # Burp Suite
+      - owasp-zap
+      - tor
+      - unicorn
+      - radare2
+      - fcrackzip
+      - john-jumbo
+      - mitmproxy
+      - hashcat
+- name: download my fork of ctf-tools
+  git:
+    repo: git@github.com:boxmein/ctf-tools.git
+    dest: ~/Programs/ctf-tools/
+- name: install some tools in ctf-tools
+  command:
+    cmd: |
+      bin/manage-tools install {{ item }}
+    chdir: ~/Programs/ctf-tools
+  loop:
+    - binwalk
+    - sqlmap
+- name: download SecLists
+  git:
+    repo: git@github.com:danielmiessler/SecLists.git
+    depth: 1
+    version: HEAD
+- name: download fuzzdb
+  git:
+    repo: git@github.com:fuzzdb-project/fuzzdb.git
+    depth: 1
+    version: HEAD

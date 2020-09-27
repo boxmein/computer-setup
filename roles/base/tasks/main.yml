@@ -6,4 +6,15 @@
 - include_tasks: ./neovim.yml
 - include_tasks: ./macos.yml
   when: ansible_system == "Darwin"
+- include_tasks: ./linux.yml
+  when: ansible_system == "Linux"
 - include_tasks: ./self_updater.yml
+- name: ensure ~/Programs exists
+  file:
+    path: ~/Programs
+    state: directory
+- include_tasks: ./security.yml
+- include_tasks: ./devenvs/general.yml
+- include_tasks: ./devenvs/c++.yml
+- include_tasks: ./devenvs/docker.yml
+- include_tasks: ./devenvs/kubernetes.yml
