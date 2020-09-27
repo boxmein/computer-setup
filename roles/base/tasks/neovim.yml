@@ -1,0 +1,25 @@
+- name: install neovim
+  community.general.homebrew:
+    args:
+      - HEAD
+    name:
+      - neovim
+    present: true
+- name: install neovim python support
+  pip:
+    executable: ~/.asdf/shims/pip
+    name:
+      - neovim
+    state: present
+- name: let neovim finish installing
+  command:
+    cmd: |
+      nvim +PlugInstall +qall!
+    creates: ~/.vim/plugged/coc.nvim/bin/server.js
+- name: install coc packages
+  command:
+    cmd: |
+      npm install
+    chdir: |
+      ~/.config/coc/extensions/
+    creates: ~/.config/coc/extensions/package-lock.json

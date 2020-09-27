@@ -14,13 +14,6 @@
       - nektos/tap
       - windmilleng/tap
     state: present
-- name: install neovim
-  community.general.homebrew:
-    args:
-      - HEAD
-    name:
-      - neovim
-    present: true
 - name: install all packages
   community.general.homebrew:
     name:
@@ -30,9 +23,7 @@
       - coreutils
       - libyaml
       - openssl@1.1
-      - asdf
       - atk
-      - awscli
       - bat
       - bats
       - binutils
@@ -40,7 +31,6 @@
       - calc
       - ccls
       - clang-format
-      - cmake
       - ctop
       - curl
       - libidn
@@ -71,7 +61,6 @@
       - john-jumbo
       - oniguruma
       - jq
-      - kubernetes-cli
       - libiconv
       - libotr
       - libusb-compat
@@ -88,9 +77,9 @@
       - tmux
       - overmind
       - p7zip
-      - pass
-      - pg_top
-      - pkg-config
+      - pass                      # Provides basic password management
+      - pg_top                    # Provides postgresql top
+      - pkg-config                # Dep of other packages
       - pstree
       - pth
       - pv
@@ -123,11 +112,11 @@
 - name: install casks
   community.general.homebrew_cask:
     name:
-      - 1password-cli
-      - android-platform-tools
-      - aws-vault
-      - burp-suite
-      - cscreen
+      - 1password-cli             # provides 1password credentials over CLI
+      - android-platform-tools    # Provides AVD + adb
+      - aws-vault                 # Provides AWS-Vault
+      - burp-suite                # Burp Suite
+      - cscreen                   # Provides a tool to configure monitors on Mac
       - discord
       - docker
       - gas-mask
@@ -141,5 +130,7 @@
       - postman
       - powershell
       - syncthing
+      - tunnelblick               # OpenVPN GUI
       - visual-studio-code
       - vmware-fusion
+  when: ansible_system == "Darwin"

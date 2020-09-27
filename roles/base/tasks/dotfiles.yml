@@ -1,0 +1,54 @@
+- name: symlink stuff (mac/linux)
+  file:
+    state: link
+    src: "~/.dotfiles/{{ item }}"
+    path: "~/{{ item }}"
+  loop:
+    - .zshrc
+    - .zshenv
+    - .p10k.zsh
+    - antigen.zsh
+    - .vimrc
+    - .vim
+    - .docker
+    - .gitconfig
+    - .pgpass
+    - .netrc
+    - .tmux.conf
+    - .weechat
+
+- name: symlink stuff (mac)
+  file:
+    state: link
+    src: "~/.dotfiles/{{ item }}"
+    path: "~/{{ item }}"
+  loop:
+    - .hammerspoon
+    - .inputrc
+    - Library/KeyBindings
+  when: ansible_system == "Darwin"
+
+- name: symlink stuff (linux)
+  file:
+    state: link
+    src: "~/.dotfiles/{{ item }}"
+    path: "~/{{ item }}"
+  loop:
+    - .xbindkeysrc
+    - .xinitrc
+    - .Xdefaults
+    - .Xresources
+    - .alacritty.yml
+    - .selected_editor
+  when: ansible_system == "Linux"
+
+# Kubernetes
+- name: kube config dir
+  file:
+    path: ~/.kube
+    state: directory
+- name: kube config link
+  file:
+    path: ~/.kube/config
+    src: ~/.dotfiles/.kube/config
+    state: link

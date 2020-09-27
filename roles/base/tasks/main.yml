@@ -1,2 +1,6 @@
 - include_tasks: ./homebrew.yml
 - include_tasks: ./homebrew_packages.yml
+- include_tasks: ./dotconfig.yml
+- include_tasks: ./dotfiles.yml
+- include_tasks: ./asdf.yml
+- include_tasks: ./neovim.yml
