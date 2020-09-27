@@ -7,7 +7,7 @@
     state: present
 - name: install neovim python support
   pip:
-    executable: ~/.asdf/shims/pip
+    executable: ~/.asdf/shims/pip3
     name:
       - neovim
     state: present
