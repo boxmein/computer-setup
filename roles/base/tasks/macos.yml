@@ -1,0 +1,17 @@
+- name: configure menu bar
+  debug:
+    msg: |
+      Configure menu bar to show bluetooth, audio from
+      System Preferences.
+      # defaults write com.apple.systemuiserver -array \
+      #   "/System/Library/CoreServices/Menu Extras/Clock.menu" \
+      #   "/System/Library/CoreServices/Menu Extras/Battery.menu" \
+      #   "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
+      #   "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
+      #   "/System/Library/CoreServices/Menu Extras/Displays.menu"
+- name: configure dock to not show recents
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: show-recents
+    type: integer
+    value: 0

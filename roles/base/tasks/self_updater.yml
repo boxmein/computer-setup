@@ -1,0 +1,16 @@
+- name: computer-setup folder
+  become: true
+  file:
+    name: /opt/computer-setup
+    state: directory
+    owner: root
+    group: staff
+    mode: u=rwx,g=r,o=r
+- name: copy runner to /opt
+  become: true
+  copy:
+    src: ../../../run.sh
+    dest: /opt/computer-setup/run.sh
+    mode: u=rwx,g=r,o=r
+    owner: root
+    group: staff

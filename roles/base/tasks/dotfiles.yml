@@ -12,10 +12,18 @@
     - .vim
     - .docker
     - .gitconfig
-    - .pgpass
-    - .netrc
     - .tmux.conf
     - .weechat
+
+- name: symlink secure stuff (mac/linux)
+  file:
+    state: link
+    src: "~/.dotfiles/{{ item }}"
+    path: "~/{{ item }}"
+    mode: u=rw,g=,o=
+  loop:
+    - .pgpass
+    - .netrc
 
 - name: symlink stuff (mac)
   file:

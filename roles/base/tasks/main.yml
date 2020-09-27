@@ -4,3 +4,6 @@
 - include_tasks: ./dotfiles.yml
 - include_tasks: ./asdf.yml
 - include_tasks: ./neovim.yml
+- include_tasks: ./macos.yml
+  when: ansible_system == "Darwin"
+- include_tasks: ./self_updater.yml
