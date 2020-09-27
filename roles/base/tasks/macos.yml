@@ -2,6 +2,7 @@
   command:
     cmd: |
       xcode-select --install
+    creates: /usr/bin/git
   when: ansible_system == "Darwin"
 - name: configure menu bar
   debug:
