@@ -9,4 +9,3 @@
     name:
       - kubespy
     state: present
-- name: install
