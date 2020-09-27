@@ -11,6 +11,7 @@
     name:
       - neovim
     state: present
+  when: ansible_system == "Darwin"
 - name: let neovim finish installing
   command:
     cmd: |
