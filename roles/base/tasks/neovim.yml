@@ -1,7 +1,7 @@
 - name: install neovim
   community.general.homebrew:
-    args:
-      - HEAD
+    install_options:
+      - "--HEAD"
     name:
       - neovim
     state: present
