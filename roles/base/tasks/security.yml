@@ -2,12 +2,16 @@
   community.general.homebrew:
     name:
       - tor
-      - unicorn
       - radare2
       - fcrackzip
       - john-jumbo
       - mitmproxy
       - hashcat
+- name: install security tools (Mac)
+  community.general.homebrew:
+    name:
+    - unicorn
+  when: ansible_system == "Darwin"
 - name: install security casks (Mac)
   when: ansible_system == "Darwin"
   community.general.homebrew_cask:
