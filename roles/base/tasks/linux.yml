@@ -1,4 +1,5 @@
-- name: install packages
+- name: linux base packages
+  become: true
   package:
     name:
       - zsh
