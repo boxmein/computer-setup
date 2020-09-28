@@ -7,7 +7,7 @@
 
 - name: install homebrew (Mac)
   command:
-    creates: /usr/local/Cellar/bin/brew
+    creates: /usr/local/bin/brew
     cmd: |
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   when: ansible_system == "Darwin"
