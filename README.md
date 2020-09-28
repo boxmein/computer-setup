@@ -10,16 +10,9 @@ on each OS.
 This is how to make sure that the computer matches the ansible setup:
 
 ```
-ansible-pull -U git@github.com:boxmein/computer-setup -i hosts local.yml
+curl https://raw.githubusercontent.com/boxmein/computer-setup/master/run.sh | bash
 ```
 
 ## Auto-running
 
-We can run the ansible-pull script as a daily/weekly cron task:
-
-1. Put the `run.sh` into /opt/computer-setup.sh, add +x
-2. Add to the system crontab:
-
-```
-@daily /opt/computer-setup.sh
-```
+The command installs a system cron task to run automatically every day.
