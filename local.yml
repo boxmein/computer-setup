@@ -1,7 +1,7 @@
 - hosts: local
   roles:
-    - base
     - markosamuli.asdf
+    - base
   vars:
     install_asdf: true
     asdf_init_shell: false
