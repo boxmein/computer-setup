@@ -1,3 +1,7 @@
+- name: ensure .config exists
+  file:
+    path: ~/.config
+    state: directory
 - name: install neovim
   community.general.homebrew:
     install_options:
