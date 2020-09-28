@@ -9,12 +9,12 @@
     name:
       - neovim
     state: present
-- name: install neovim python support
-  pip:
-    name:
-      - neovim
-    state: present
-  when: ansible_system == "Darwin"
+    # - name: install neovim python support
+    # pip:
+    # name:
+    #   - neovim
+    # state: present
+    # when: ansible_system == "Linux"
 - name: let neovim finish installing
   command:
     cmd: |
