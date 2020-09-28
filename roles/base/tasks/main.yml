@@ -14,7 +14,7 @@
   file:
     path: ~/Programs
     state: directory
-- include_tasks: ./security.yml
+    # - include_tasks: ./security.yml
 - include_tasks: ./devenvs/general.yml
 - include_tasks: ./devenvs/c++.yml
 - include_tasks: ./devenvs/docker.yml
