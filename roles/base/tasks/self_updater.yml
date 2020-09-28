@@ -14,10 +14,10 @@
     mode: u=rwx,g=r,o=r
     owner: root
     group: staff
-- name: set up a system cron task to self-update daily
-  become: true
-  cron:
-    user: root
-    cron_file: computer-setup_self-updater
-    job: /opt/computer-setup/run.sh
-    special_time: daily
+# - name: set up a system cron task to self-update daily
+#   become: true
+#   cron:
+#     user: root
+#     cron_file: computer-setup_self-updater
+#     job: /opt/computer-setup/run.sh
+#     special_time: daily
