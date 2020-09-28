@@ -19,3 +19,5 @@
 - include_tasks: ./devenvs/c++.yml
 - include_tasks: ./devenvs/docker.yml
 - include_tasks: ./devenvs/kubernetes.yml
+# TODO: AWS CLI
+# TODO: Google Cloud CLI
