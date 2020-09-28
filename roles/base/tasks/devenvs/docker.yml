@@ -22,3 +22,4 @@
     groups:
       - docker
     append: yes
+  when: ansible_system == "Linux"
