@@ -27,6 +27,7 @@
     - .gitconfig
     - .tmux.conf
     - .weechat
+    - .psqlrc
 
 - name: dotfiles - symlink secure stuff (mac/linux)
   file:
