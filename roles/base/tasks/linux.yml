@@ -1,4 +1,4 @@
-- name: linux base packages
+- name: linux - linux base packages
   become: true
   package:
     name:
@@ -22,3 +22,6 @@
       - postgresql-client         # PostgreSQL cli
     state: present
   when: ansible_system == "Linux"
+  tags:
+    - install
+    - packages

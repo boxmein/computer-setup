@@ -1,8 +1,12 @@
-- name: install pass
+- name: pass - install pass
   community.general.homebrew:
     name:
       - pass
-- name: download the password store
+  tags:
+    - install
+    - packages
+
+- name: pass - download the password store
   git:
     repo: git@github.com:boxmein/pass-stack.git
     dest: ~/.password-store/

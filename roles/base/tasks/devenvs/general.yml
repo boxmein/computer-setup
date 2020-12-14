@@ -1,4 +1,4 @@
-- name: install useful dev packages
+- name: devenvs.general - install useful dev packages
   community.general.homebrew:
     name:
       - bat
@@ -24,7 +24,11 @@
       - github/gh/gh
       - heroku/brew/heroku
       - jesseduffield/lazydocker/lazydocker
-- name: install useful dev casks
+  tags:
+    - install
+    - packages
+    - dev
+- name: devenvs.general - install useful dev casks
   community.general.homebrew_cask:
     name:
       - android-platform-tools    # Provides AVD + adb
@@ -35,3 +39,7 @@
       - vmware-fusion
       - visual-studio-code
   when: ansible_system == "Darwin"
+  tags:
+    - install
+    - packages
+    - dev

@@ -1,21 +1,28 @@
-- name: install docker (Linux)
+- name: devenvs.docker - install docker (Linux)
   become: true
   command:
     creates: /usr/bin/docker
     cmd: |
       curl get.docker.com | sh
   when: ansible_system == "Linux"
-# - name: install docker compose (Linux)
+  tags:
+    - install
+    - packages
+    - dev
+# - name: devenvs.docker - install docker compose (Linux)
 # pip:
 #   name:
 #     - docker-compose
 # when: ansible_system == "Linux"
-- name: install docker (Mac)
+- name: devenvs.docker - install docker (Mac)
   community.general.homebrew_cask:
     name:
       - docker
   when: ansible_system == "Darwin"
-- name: allow current user to access docker (linux)
+  tags:
+    - install
+    - packages
+- name: devenvs.docker - allow current user to access docker (linux)
   become: true
   user:
     name: "{{ ansible_user_id }}"
@@ -23,3 +30,4 @@
       - docker
     append: yes
   when: ansible_system == "Linux"
+

@@ -1,4 +1,4 @@
-- name: install security tools
+- name: security - install security tools
   community.general.homebrew:
     name:
       - tor
@@ -7,39 +7,71 @@
       - john-jumbo
       - mitmproxy
       - hashcat
-- name: install security tools (Mac)
+  tags:
+    - install
+    - packages
+    - ctf
+
+- name: security - install security tools (Mac)
   community.general.homebrew:
     name:
     - unicorn
   when: ansible_system == "Darwin"
-- name: install security casks (Mac)
+  tags:
+    - install
+    - packages
+    - ctf
+
+- name: security - install security casks (Mac)
   when: ansible_system == "Darwin"
   community.general.homebrew_cask:
     name:
       - burp-suite
       - owasp-zap
-- name: download my fork of ctf-tools
+  tags:
+    - install
+    - packages
+    - ctf
+
+- name: security - download my fork of ctf-tools
   git:
     repo: git@github.com:boxmein/ctf-tools.git
     dest: ~/Programs/ctf-tools/
-- name: install some tools in ctf-tools
+  tags:
+    - install
+    - packages
+    - ctf
+
+- name: security - install some tools in ctf-tools
   command:
     cmd: |
       bin/manage-tools install {{ item }}
     creates: ~/Programs/ctf-tools/bin/{{ item }}
     chdir: ~/Programs/ctf-tools
   loop:
-    - binwalk
+    # - binwalk
     # - sqlmap # requires python3-dev
-- name: download SecLists
+  tags:
+    - install
+    - packages
+    - ctf
+
+- name: security - download SecLists
   git:
     repo: git@github.com:danielmiessler/SecLists.git
     dest: ~/Programs/SecLists/
     depth: 1
     version: HEAD
-- name: download fuzzdb
+  tags:
+    - install
+    - ctf
+
+- name: security - download fuzzdb
   git:
     repo: git@github.com:fuzzdb-project/fuzzdb.git
     dest: ~/Programs/fuzzdb/
     depth: 1
     version: HEAD
+  tags:
+    - install
+    - ctf

@@ -1,11 +1,15 @@
-- name: install kubectl
+- name: devenvs.kubernetes - install kubectl
   debug:
     msg: done by asdf already
 - name: install k9s
   debug:
     msg: done by asdf already
-- name: install kubespy
+- name: devenvs.kubernetes - install kubespy
   community.general.homebrew:
     name:
       - kubespy
     state: present
+  tags:
+    - install
+    - packages
+    - dev

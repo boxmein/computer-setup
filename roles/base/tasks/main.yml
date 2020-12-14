@@ -1,6 +1,6 @@
 # pre-task: authorize to github.com with a valid SSH key
 - include_tasks: ./homebrew.yml             # installs git for linux
-# - include_tasks: ./homebrew_packages.yml
+- include_tasks: ./homebrew_packages.yml
 - include_tasks: ./macos.yml                # installs git for macOS
   when: ansible_system == "Darwin"
 - include_tasks: ./linux.yml
@@ -10,12 +10,14 @@
 - include_tasks: ./pass.yml
 - include_tasks: ./neovim.yml
 - include_tasks: ./self_updater.yml
-- name: ensure ~/Programs exists
+- name: main - ensure ~/Programs exists
   file:
     path: ~/Programs
     state: directory
-    # - include_tasks: ./security.yml
+- include_tasks: ./security.yml
 - include_tasks: ./devenvs/general.yml
 - include_tasks: ./devenvs/c++.yml
 - include_tasks: ./devenvs/docker.yml
 - include_tasks: ./devenvs/kubernetes.yml
+# TODO: AWS CLI
+# TODO: Google Cloud CLI
