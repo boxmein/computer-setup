@@ -1,4 +1,4 @@
-- name: computer-setup folder
+- name: self_updater - computer-setup folder
   become: true
   file:
     name: /opt/computer-setup
@@ -6,7 +6,9 @@
     owner: root
     group: staff
     mode: u=rwx,g=r,o=r
-- name: copy runner to /opt
+  tags:
+    - selfupdater
+- name: self_updater - copy runner to /opt
   become: true
   copy:
     src: ../../../run.sh
@@ -14,7 +16,9 @@
     mode: u=rwx,g=r,o=r
     owner: root
     group: staff
-# - name: set up a system cron task to self-update daily
+  tags:
+    - selfupdater
+# - name: self_updater - set up a system cron task to self-update daily
 #   become: true
 #   cron:
 #     user: root

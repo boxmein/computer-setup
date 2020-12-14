@@ -1,21 +1,27 @@
-- name: install homebrew (linux)
+- name: homebrew - install homebrew (linux)
   command:
     creates: /home/linuxbrew/.linuxbrew/bin/brew
     cmd: |
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   when: ansible_system == "Linux"
+  tags:
+    - install
+    - packages
 
-- name: install homebrew (Mac)
+- name: homebrew - install homebrew (Mac)
   command:
     creates: /usr/local/bin/brew
     cmd: |
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   when: ansible_system == "Darwin"
+  tags:
+    - install
+    - packages
 
-  #- name: update homebrew repos
+  #- name: homebrew - update homebrew repos
   #community.general.homebrew:
   #  update_homebrew: true
 
-# - name: upgrade homebrew packages
+# - name: homebrew - upgrade homebrew packages
 # community.general.homebrew:
 # upgrade_all: true

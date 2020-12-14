@@ -1,21 +1,21 @@
-- name: symlink neovim config
+- name: dotconfig - symlink neovim config
   file:
     path: ~/.config/nvim
     src: ~/.dotfiles/.config/nvim
     state: link
-- name: symlink coc config
+- name: dotconfig - symlink coc config
   file:
     path: ~/.config/coc
     src: ~/.dotfiles/.config/coc
     state: link
     force: true # delete pre-existing
-- name: symlink karabiner config
+- name: dotconfig - symlink karabiner config
   file:
     path: ~/.config/karabiner
     src: ~/.dotfiles/.config/karabiner
     state: link
   when: ansible_system == 'Darwin'
-- name: symlink powershell config
+- name: dotconfig - symlink powershell config
   file:
     path: ~/.config/powershell
     src: ~/.dotfiles/.config/powershell

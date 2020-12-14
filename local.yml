@@ -2,6 +2,7 @@
   roles:
     - markosamuli.asdf
     - base
+    - vpn-client
   vars:
     install_asdf: true
     asdf_init_shell: false

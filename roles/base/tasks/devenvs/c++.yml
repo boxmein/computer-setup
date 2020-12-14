@@ -1,4 +1,8 @@
-- name: install c++ dev packages
+- name: devenvs.c++ - install c++ dev packages
   community.general.homebrew:
     name:
       - clang-format
+  tags:
+    - install
+    - packages
+    - dev

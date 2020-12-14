@@ -1,48 +1,60 @@
-- name: ensure .config exists
+- name: neovim - ensure .config exists
   file:
     path: ~/.config
     state: directory
-- name: install neovim
+- name: neovim - install neovim
   community.general.homebrew:
     install_options:
       - HEAD
     name:
       - neovim
     state: present
-    # - name: install neovim python support
+    # - name: neovim - install neovim python support
     # pip:
     # name:
     #   - neovim
     # state: present
     # when: ansible_system == "Linux"
-- name: let neovim finish installing
+  tags:
+    - install
+    - packags
+- name: neovim - let neovim finish installing
   command:
     cmd: |
       nvim +PlugInstall +qall!
     creates: ~/.vim/plugged/coc.nvim/bin/server.js
-- name: install coc packages
+  tags:
+    - install
+- name: neovim - install coc packages
   command:
     cmd: |
       npm install
     chdir: ~/.config/coc/extensions/
     creates: ~/.config/coc/extensions/package-lock.json
+  tags:
+    - install
 
 # neovim + vim-coc dependencies
-- name: install ccls (neovim + coc c++ language-server)
+- name: neovim - install ccls (neovim + coc c++ language-server)
   community.general.homebrew:
-    name:
+    name: neovim -
       - ccls
     state: present
-- name: install kotlin-language-server
+  tags:
+    - install
+    - packages
+- name: neovim - install kotlin-language-server
   block:
-    - name: download kotlin lsp
+    - name: neovim - download kotlin lsp
       git:
         repo: https://github.com/fwcd/kotlin-language-server
         dest: ~/Programs/kotlin-language-server/
         depth: 1
-    - name: build kotlin lsp
+    - name: neovim - build kotlin lsp
       command:
         creates: ~/Programs/kotlin-language-server/server/build/scripts/kotlin-language-server
         cmd: |
           ./gradlew :server:installDist
         chdir: ~/Programs/kotlin-language-server
+  tags:
+    - install

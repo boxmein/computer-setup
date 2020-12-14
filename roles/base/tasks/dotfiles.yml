@@ -1,16 +1,16 @@
-- name: download dotfiles
+- name: dotfiles - download dotfiles
   block:
-    - name: detect dotfiles existence
+    - name: dotfiles - detect dotfiles existence
       stat:
         path: ~/.dotfiles
       register: dotfiles_stat
-    - name: download dotfiles if needed
+    - name: dotfiles - download dotfiles if needed
       git:
         repo: git@github.com:boxmein/dotfiles.git
         dest: ~/.dotfiles/
       when: not dotfiles_stat.stat.exists
 
-- name: symlink stuff (mac/linux)
+- name: dotfiles - symlink stuff (mac/linux)
   file:
     state: link
     src: "~/.dotfiles/{{ item }}"
@@ -28,7 +28,7 @@
     - .tmux.conf
     - .weechat
 
-- name: symlink secure stuff (mac/linux)
+- name: dotfiles - symlink secure stuff (mac/linux)
   file:
     state: link
     src: "~/.dotfiles/{{ item }}"
@@ -39,7 +39,7 @@
     - .pgpass
     - .netrc
 
-- name: symlink stuff (mac)
+- name: dotfiles - symlink stuff (mac)
   file:
     state: link
     src: "~/.dotfiles/{{ item }}"
@@ -50,7 +50,7 @@
     - Library/KeyBindings
   when: ansible_system == "Darwin"
 
-- name: symlink stuff (linux)
+- name: dotfiles - symlink stuff (linux)
   file:
     state: link
     src: "~/.dotfiles/{{ item }}"
@@ -66,11 +66,12 @@
   when: ansible_system == "Linux"
 
 # Kubernetes
-- name: kube config dir
+- name: dotfiles - kube config dir
   file:
     path: ~/.kube
     state: directory
-- name: kube config link
+
+- name: dotfiles - kube config link
   file:
     path: ~/.kube/config
     src: ~/.dotfiles/.kube/config

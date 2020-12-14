@@ -10,11 +10,11 @@
 - include_tasks: ./pass.yml
 - include_tasks: ./neovim.yml
 - include_tasks: ./self_updater.yml
-- name: ensure ~/Programs exists
+- name: main - ensure ~/Programs exists
   file:
     path: ~/Programs
     state: directory
-    # - include_tasks: ./security.yml
+- include_tasks: ./security.yml
 - include_tasks: ./devenvs/general.yml
 - include_tasks: ./devenvs/c++.yml
 - include_tasks: ./devenvs/docker.yml

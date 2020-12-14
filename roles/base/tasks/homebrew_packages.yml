@@ -1,4 +1,4 @@
-- name: set up all homebrew repos
+- name: homebrew_packages - set up all homebrew repos
   community.general.homebrew_tap:
     name:
       - homebrew/bundle
@@ -14,7 +14,11 @@
       - nektos/tap
       - windmilleng/tap
     state: present
-- name: install all packages
+  tags:
+    - install
+    - packages
+
+- name: homebrew_packages - install all packages
   community.general.homebrew:
     name:
       - adns
@@ -69,7 +73,11 @@
       - wget
       - zsh
       - windmilleng/tap/tilt
-- name: install casks
+  tags:
+    - install
+    - packages
+
+- name: homebrew_packages - install casks
   community.general.homebrew_cask:
     name:
       - 1password-cli             # provides 1password credentials over CLI
@@ -79,7 +87,9 @@
       - karabiner-elements
       - powershell
       - syncthing
-      - tunnelblick               # OpenVPN GUI
       - slack
       - telegram-desktop
   when: ansible_system == "Darwin"
+  tags:
+    - install
+    - packages
