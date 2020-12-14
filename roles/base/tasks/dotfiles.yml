@@ -1,7 +1,15 @@
 - name: download dotfiles
-  git:
-    repo: git@github.com:boxmein/dotfiles.git
-    dest: ~/.dotfiles/
+  block:
+    - name: detect dotfiles existence
+      stat:
+        path: ~/.dotfiles
+      register: dotfiles_stat
+    - name: download dotfiles if needed
+      git:
+        repo: git@github.com:boxmein/dotfiles.git
+        dest: ~/.dotfiles/
+      when: not dotfiles_stat.stat.exists
+
 - name: symlink stuff (mac/linux)
   file:
     state: link
