@@ -33,7 +33,7 @@
       - name: python
         versions:
           - "2.7.18"
-          - "3.9.3"
+          - "3.9.1"
       - name: ruby
         versions:
           - "2.6.3"
