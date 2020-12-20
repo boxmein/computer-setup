@@ -6,6 +6,7 @@
   vars:
     install_asdf: true
     asdf_init_shell: false
+    asdf_version: v0.8.0
     asdf_plugins:
       - name: cmake
         versions:
@@ -25,18 +26,18 @@
       - name: nodejs
         versions:
           - "12.16.0"
-          - "13.9.0"
+          - "15.4.0"
       - name: opam
         versions:
           - "2.0.7"
       - name: python
         versions:
           - "2.7.18"
-          - "3.8.5"
+          - "3.9.3"
       - name: ruby
         versions:
           - "2.6.3"
-          - "2.6.5"
+          - "2.8.0"
       - name: rust
         versions:
           - "1.41.1"
