@@ -37,7 +37,7 @@
       - name: ruby
         versions:
           - "2.6.3"
-          - "2.8.0"
+          - "2.7.2"
       - name: rust
         versions:
           - "1.48.0"

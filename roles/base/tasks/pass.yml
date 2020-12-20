@@ -6,7 +6,7 @@
     - install
     - packages
 
-- name: pass - download the password store
-  git:
-    repo: git@github.com:boxmein/pass-stack.git
-    dest: ~/.password-store/
+# - name: pass - download the password store
+#   git:
+#     repo: git@github.com:boxmein/pass-stack.git
+#     dest: ~/.password-store/
