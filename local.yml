@@ -6,13 +6,14 @@
   vars:
     install_asdf: true
     asdf_init_shell: false
+    asdf_version: v0.8.0
     asdf_plugins:
       - name: cmake
         versions:
-          - "3.16.4"
+          - "3.19.2"
       - name: dotnet-core
         versions:
-          - "2.1.807"
+          - "5.0.101"
       - name: golang
         versions:
           - "1.15"
@@ -21,11 +22,11 @@
           - adoptopenjdk-11.0.8+10
       - name: kotlin
         versions:
-          - "1.4.10"
+          - "1.4.21"
       - name: nodejs
         versions:
           - "12.16.0"
-          - "13.9.0"
+          - "15.4.0"
       - name: opam
         versions:
           - "2.0.7"
@@ -36,25 +37,25 @@
       - name: ruby
         versions:
           - "2.6.3"
-          - "2.6.5"
+          - "2.7.2"
       - name: rust
         versions:
-          - "1.41.1"
+          - "1.48.0"
       - name: swift
         versions:
           - "5.1.2"
       - name: terraform
         versions:
-          - "0.13.0"
+          - "0.14.3"
       - name: kubectl
         versions:
-          - "1.19.2"
+          - "1.20.1"
       - name: kubeval
         versions:
-          - "0.14.0"
+          - "0.15.0"
       - name: k9s
         versions:
-          - "0.19.2"
+          - "0.24.2"
       - name: gcloud
         versions:
           - "321.0.0"
