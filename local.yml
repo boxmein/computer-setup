@@ -32,7 +32,7 @@
       - name: python
         versions:
           - "2.7.18"
-          - "3.8.5"
+          - "3.9.1"
       - name: ruby
         versions:
           - "2.6.3"
@@ -55,3 +55,6 @@
       - name: k9s
         versions:
           - "0.19.2"
+      - name: gcloud
+        versions:
+          - "321.0.0"
