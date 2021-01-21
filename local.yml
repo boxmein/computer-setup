@@ -1,8 +1,14 @@
 - hosts: local
   roles:
-    - markosamuli.asdf
-    - base
-    - vpn-client
+    - role: markosamuli.asdf
+      tags:
+        - asdf
+    - role: base
+      tags:
+        - base
+    - role: vpn-client
+      tags:
+        - vpn-client
   vars:
     install_asdf: true
     asdf_init_shell: false

@@ -2,6 +2,17 @@
   file:
     path: ~/.config
     state: directory
+- name: install typescript language server
+  command:
+    creates: '~/.asdf/shims/{{ item }}'
+    cmd: npm install -g {{ item }}; asdf reshim
+  with_items:
+    - typescript
+    - typescript-language-server
+- name: install html language server
+  command:
+    creates: '~/.asdf/shims/html-languageserver'
+    cmd: npm install -g vscode-html-languageserver-bin; asdf reshim
 - name: neovim - install neovim
   community.general.homebrew:
     install_options:
