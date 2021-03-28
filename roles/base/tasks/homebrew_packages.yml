@@ -72,13 +72,8 @@
     name:
       - 1password-cli             # provides 1password credentials over CLI
       - cscreen                   # Provides a tool to configure monitors on Mac
-      - discord
-      - google-chrome
       - karabiner-elements
       - powershell
-      - syncthing
-      - slack
-      - telegram-desktop
   when: ansible_system == "Darwin"
   tags:
     - install

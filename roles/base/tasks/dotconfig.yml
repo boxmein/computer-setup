@@ -14,9 +14,11 @@
     path: ~/.config/karabiner
     src: ~/.dotfiles/.config/karabiner
     state: link
+    force: true
   when: ansible_system == 'Darwin'
 - name: dotconfig - symlink powershell config
   file:
     path: ~/.config/powershell
     src: ~/.dotfiles/.config/powershell
     state: link
+    force: true

@@ -2,17 +2,6 @@
   file:
     path: ~/.config
     state: directory
-- name: install typescript language server
-  command:
-    creates: '~/.asdf/shims/{{ item }}'
-    cmd: npm install -g {{ item }}; asdf reshim
-  with_items:
-    - typescript
-    - typescript-language-server
-- name: install html language server
-  command:
-    creates: '~/.asdf/shims/html-languageserver'
-    cmd: npm install -g vscode-html-languageserver-bin; asdf reshim
 - name: neovim - install neovim
   community.general.homebrew:
     install_options:
@@ -33,39 +22,6 @@
   command:
     cmd: |
       nvim +PlugInstall +qall!
-    creates: ~/.vim/plugged/coc.nvim/bin/server.js
-  tags:
-    - install
-- name: neovim - install coc packages
-  command:
-    cmd: |
-      npm install
-    chdir: ~/.config/coc/extensions/
-    creates: ~/.config/coc/extensions/package-lock.json
-  tags:
-    - install
-
-# neovim + vim-coc dependencies
-- name: neovim - install ccls (neovim + coc c++ language-server)
-  community.general.homebrew:
-    name: neovim -
-      - ccls
-    state: present
-  tags:
-    - install
-    - packages
-- name: neovim - install kotlin-language-server
-  block:
-    - name: neovim - download kotlin lsp
-      git:
-        repo: https://github.com/fwcd/kotlin-language-server
-        dest: ~/Programs/kotlin-language-server/
-        depth: 1
-    - name: neovim - build kotlin lsp
-      command:
-        creates: ~/Programs/kotlin-language-server/server/build/scripts/kotlin-language-server
-        cmd: |
-          ./gradlew :server:installDist
-        chdir: ~/Programs/kotlin-language-server
+    creates: ~/.vim/plugged/nvim-lsp/plugin/lspconfig.vim
   tags:
     - install
